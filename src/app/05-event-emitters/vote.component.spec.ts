@@ -7,6 +7,12 @@ describe('VoteComponent', () => {
     component = new VoteComponent();
   });
 
-  it('', () => {
+  it('should subscribe to the upvote', () => {
+    let upvoteCount : number;
+    component.voteChanged.subscribe((votes)=>{
+      upvoteCount = votes;
+    });
+    component.upVote();
+    expect(upvoteCount).toEqual(1);
   });
 });
